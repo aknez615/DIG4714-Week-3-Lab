@@ -1,1 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class Task3 : MonoBehaviour
+{
+    private int Hundred = 0;
+    private int Fifty = 0;
+    private int Twenty = 0;
+    private int Ten = 0;
+    private int Five = 0;
+    private int One = 0;
+    public int Amount = 0;
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (Amount >= 100)                      // can the amount be paid with a hundred dollar bill
+        {                                       
+            Hundred = Amount / 100;             // count how many hundred dollar bills
+            Amount = Amount - (Hundred * 100);  // subtract the hundred dollar bills from the total amount
+        }
+        if (Amount >= 50)                       // can the amount be paid with a fifty dollar bill    
+        {
+            Fifty = Amount / 50;                // count how many fifty dollar bills    
+            Amount = Amount - (Fifty * 50);     // subtract the fifty dollar bills from the total amount
+        }
+        if (Amount >= 20)                       // can the amount be paid with a twenty dollar bill
+        {
+            Twenty = Amount / 20;               // count how many twenty dollar bills    
+            Amount = Amount - (Twenty * 20);    // subtract the twenty dollar bills from the total amount    
+        }
+        if (Amount >= 10)                       // can the amount be paid with a ten dollar bill    
+        {
+            Ten = Amount / 10;                  // count how many ten dollar bills   
+            Amount = Amount - (Ten * 10);       // subtract the ten dollar bills from the total amount     
+        }
+        if (Amount >= 5)                        // can the amount be paid with a five dollar bill
+        {
+            Five = Amount / 5;                  // count how many five dollar bills
+            Amount = Amount - (Five * 5);       // subtract the five dollar bills from the total amount
+        }
+        if (Amount >= 1)                        // can the amount be paid with a one dollar bill
+        {
+            One = Amount / 1;                   // count how many one dollar bills
+            Amount = Amount - (One * 1);        // subtract the one dollar bills from the total amount
+        }
+
+        Debug.Log("The amount of bills you will get is " + Hundred + " hundred dollar bills " + Fifty + " fifty dollar bills " + Twenty + " twenty dollar bills " + Ten + " ten dollar bills " + Five + " five dollar bills " + One + " one dollar bills.");
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
