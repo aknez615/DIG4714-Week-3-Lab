@@ -1,34 +1,59 @@
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Task1 : MonoBehaviour
 {
-    // Final score = 1-10
-    public text Name;
-    public int modules = 0;
-    public int readingMaterials=0;
-    public int quizzes=0;
-    public int assignments=0;
-    public bool instructorPrevious == true;
-    private int score = 0;
+    public string courseName;
+    // Creating range in order to make sure user stays within constraints
+    [Range(0f, 100f)] public int numModules;
+    [Range(0f, 100f)] public int numReadingMaterials;
+    [Range(0f, 100f)] public int numQuizzes;
+    [Range(0f, 100f)] public int numAssignments;
+    public bool instructorPrevious;
+    private float finalScore;
 
-    if instructorPrevious == true
-        int instructorScore = 1
-    else instructorPrevious == false
-        int instructorScore = 0
+    // Using private floats because the number does not change and we are using it in order to calculate final score
+    private float numModulesWeight = .15f;
+    private float numReadingMaterialsWeight = .3f;
+    private float numQuizzesWeight = .15f;
+    private float numAssignmentsWeight = .3f;
+    private float instructorPreviousWeight = .1f;
 
-    // Assigning percentages to our integers
+
+    // Debugging
     void Start()
     {
-        int modules * 0.85
-        int readingMaterials * 0.7
-        int quizzes * 0.85
-        int assignments * 0.7
-        int instructorScore
-
-        int score = (modules + readingMaterials + quizzes + assignments + instructorScore)/10;
+        Debug.Log("Course name:" + courseName + "Challenge score:" + finalScore);
     }
 
-    Debug.Log(“This is the challenge score of your course” + score)
+    // Caclulating for our final score
+    private float calculateFinalScore(int field, float weight)
+    {
+        return field + weight;
+    }
+    
+    float instructor(bool field, float weight)
+    {
+        if (instructorPrevious == true)
+            return field;
+        else
+            return 0;
+    }
+
+    float fw(float field, float weight)
+    {
+        return field + weight;
+    }
+
+    void total()
+    {
+        finalScore += fw(numModules, numModulesWeight);
+        finalScore += fw(numReadingMaterials, numReadingMaterialsWeight);
+        finalScore += fw(numQuizzes, numQuizzesWeight);
+        finalScore += fw(numAssignments, numAssignmentsWeight);
+
+        return (int)Mathf.Clamp(finalScore / 10, 1, 10);
+    }
 }
