@@ -14,10 +14,10 @@ public class Task2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // X * .6 + ( 3 + .75(y-1)) = cost
+        // (X * .6) * Y + ( 3 + .75(Y-1)) = cost
         Cost = (Price * .6) * Books + (3 + (.75 * (Books - 1)));  // The total cost of buying the books at a discounted price plus shipping cost per book
         
-        // X * Y - cost = profit
+        // Y * X - cost = profit
         Profit = Books * Price - Cost; // The total profit of selling the books at full price minus the cost of buying the books
 
         Debug.Log("This is the wholesale cost " + Cost);
