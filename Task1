@@ -1,1 +1,34 @@
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
 
+public class Task1 : MonoBehaviour
+{
+    // Final score = 1-10
+    public text Name;
+    public int modules = 0;
+    public int readingMaterials=0;
+    public int quizzes=0;
+    public int assignments=0;
+    public bool instructorPrevious == true;
+    private int score = 0;
+
+    if instructorPrevious == true
+        int instructorScore = 1
+    else instructorPrevious == false
+        int instructorScore = 0
+
+    // Assigning percentages to our integers
+    void Start()
+    {
+        int modules * 0.85
+        int readingMaterials * 0.7
+        int quizzes * 0.85
+        int assignments * 0.7
+        int instructorScore
+
+        int score = (modules + readingMaterials + quizzes + assignments + instructorScore)/10;
+    }
+
+    Debug.Log(“This is the challenge score of your course” + score)
+}
