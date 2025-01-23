@@ -1,1 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Task2 : MonoBehaviour
+{
+    public int Books = 0;      // the amount of books
+    public int Price = 0;      // the set price of the books
+    private double Cost = 0;   
+    private double Profit = 0;
+
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        // X * .6 + ( 3 + .75(y-1)) = cost
+        Cost = (Price * .6) * Books + (3 + (.75 * (Books - 1)));  // The total cost of buying the books at a discounted price plus shipping cost per book
+        
+        // X * Y - cost = profit
+        Profit = Books * Price - Cost; // The total profit of selling the books at full price minus the cost of buying the books
+
+        Debug.Log("This is the wholesale cost " + Cost);
+        Debug.Log("This would be our profit " + Profit);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
 
